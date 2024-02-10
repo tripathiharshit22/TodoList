@@ -8,11 +8,12 @@ function App() {
   const addTodo = (todo) => {
     setTodos((prev) => [{ id: Date.now(), ...todo }, ...prev])
   }
-
+  
 
   const updateTodo = (id, todo) => {
 
-   
+    
+
     setTodos((prev) => prev.map((prevTodo) => (prevTodo.id === id ? todo : prevTodo)))
     
   }
@@ -36,14 +37,14 @@ function App() {
   //getItem , setItem 
 
   useEffect(()=>{ 
-    const todos = JSON.parse(localStorage.getItem("todos"))
+    const todos = JSON.parse(localStorage.getItem("todos")) 
 
     if (todos && todos.length > 0) {
       setTodos(todos)
     }
   } , [])
 
-  useEffect(()=>{ 
+  useEffect(()=>{  
     localStorage.setItem("todos", JSON.stringify(todos)) 
   } , [todos])
 
@@ -69,5 +70,7 @@ function App() {
 }
 
 export default App
+
+
 
 
