@@ -8,7 +8,6 @@ function App() {
   const addTodo = (todo) => {
     setTodos((prev) => [{ id: Date.now(), ...todo }, ...prev])
   }
-  
 
   const updateTodo = (id, todo) => {
 
@@ -22,7 +21,7 @@ function App() {
   
   const deleteTodo = (id) => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id))
-    
+   
   }
 
 
@@ -37,14 +36,14 @@ function App() {
   //getItem , setItem 
 
   useEffect(()=>{ 
-    const todos = JSON.parse(localStorage.getItem("todos")) 
+    const todos = JSON.parse(localStorage.getItem("todos"))
 
     if (todos && todos.length > 0) {
       setTodos(todos)
     }
   } , [])
 
-  useEffect(()=>{  
+  useEffect(()=>{ 
     localStorage.setItem("todos", JSON.stringify(todos)) 
   } , [todos])
 
@@ -70,7 +69,5 @@ function App() {
 }
 
 export default App
-
-
 
 
